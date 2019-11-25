@@ -149,7 +149,7 @@ public class MlKitPlugin extends CordovaPlugin {
                         if (options.has("Identifier")&& options.has("MessageId")){
                             removeMessage(options.getString("Identifier"),options.getInt("MessageId"));
                         }else{
-                            callbackContext.error("Options Identifier or Messages propriety not found!");
+                            callbackContext.error("Options Identifier or Id propriety not found!");
                         }
                         break;
                 }
@@ -677,6 +677,7 @@ public class MlKitPlugin extends CordovaPlugin {
         for (int idx = 0; idx < json.length(); idx++){
             JSONObject message = json.getJSONObject(idx);
             if (message.has("message") && message.has("timestamp")) {
+                messages[idx] = new Message();
                 messages[idx].message = message.getString("message");
                 messages[idx].timestamp = message.getLong("timestamp");
                 if (message.has("personId")) {
