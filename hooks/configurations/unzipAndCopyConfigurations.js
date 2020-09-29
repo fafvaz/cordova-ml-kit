@@ -31,7 +31,7 @@ module.exports = function(context) {
   var sourceFolderPath;
 
   if (cordovaAbove7) {
-    sourceFolderPath = path.join(context.opts.projectRoot, "www", constants.googleServices);
+    sourceFolderPath = path.join(context, wwwPath);
   } else {
     sourceFolderPath = path.join(wwwPath, constants.googleServices);
   }
